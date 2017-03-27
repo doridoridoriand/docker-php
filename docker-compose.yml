@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-  station-mysql:
-    container_name: "station-mysql"
+  php-dev-mysql:
+    container_name: "php-dev-mysql"
     image: mysql:5.6.35
     volumes:
       - ./mysql:/var/lib/mysql
@@ -14,16 +14,16 @@ services:
     # user password
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: station
+      MYSQL_DATABASE: php-dev
 
-  staion-ap:
+  php-dev-ap:
     build: ./php-dev
-    container_name: "station-ap"
+    container_name: "php-dev-ap"
     image: php-dev:latest
     ports:
       - "80:80"
     links:
-      - "station-mysql"
+      - "php-dev-mysql"
 
     # 端末を起動したままにする
     tty: true
