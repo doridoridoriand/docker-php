@@ -26,6 +26,6 @@ services:
       - "station-mysql"
 
     # 端末を起動したままにする
-    tty:true
+    tty: true
     volumes:
       - ./works:/root/works
